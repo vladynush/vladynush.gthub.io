@@ -90,23 +90,21 @@ type Product = {
  * - type ('Profit')
  * */
 
-type Cost = {
+type BaseOperation = {
   id: string;
   name: string;
   desc?: string;
   createdAt: string;
   amount: number;
   category: Category;
+  type: 'Cost' | 'Profit';
+};
+
+type Cost = Omit<BaseOperation, 'type'> & {
   type: 'Cost';
 };
 
-type Profit = {
-  id: string;
-  name: string;
-  desc?: string;
-  createdAt: string;
-  amount: number;
-  category: Category;
+type Profit = Omit<BaseOperation, 'type'> & {
   type: 'Profit';
 };
 
