@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'clsx';
 import { RegisterFormProps } from '../model/types';
 import styles from './RegisterForm.module.css';
+import { Link } from 'react-router-dom';
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({ formManager }) => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, submitCount } = formManager;
@@ -67,6 +68,10 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ formManager }) => {
       <button type="submit" className={styles.button} disabled={isSubmitting}>
         Зарегистрироваться
       </button>
+
+      <div className={styles.loginLink}>
+        Уже есть аккаунт? <Link to="/login">Войти</Link>
+      </div>
     </form>
   );
 };

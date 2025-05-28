@@ -16,7 +16,7 @@ type Story = StoryObj<typeof AddOperationForm>;
 export const Default: Story = {
   render: () => {
     const initialValues: OperationFormValues = {
-      title: '',
+      name: '',
       amount: 0,
       category: '',
       date: '',
@@ -31,7 +31,7 @@ export const Default: Story = {
           resetForm();
         }}
       >
-        {(fm) => <AddOperationForm formManager={fm} />}
+        {(fm) => <AddOperationForm formManager={fm} categories={[]} />}
       </Formik>
     );
   },

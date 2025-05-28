@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const operationFormSchema = Yup.object({
-  title: Yup.string().required('Название обязательно').min(2, 'Слишком короткое название'),
+  name: Yup.string().required('Название обязательно').min(2, 'Слишком короткое название'),
 
   amount: Yup.number()
     .typeError('Введите сумму')

@@ -1,8 +1,11 @@
+import { Category } from 'src/shared/api/otus';
+
 export type Operation = {
   id: string;
-  title: string;
-  category: string;
+  name: string;
+  categoryId: string;
+  category?: Category;
   amount: number;
-  description: string;
+  description?: string;
   date: string;
 };

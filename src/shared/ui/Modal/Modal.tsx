@@ -13,7 +13,6 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onClose, children }) => 
     onClose();
   }, [onClose]);
 
-  // Закрытие по Escape и блокировка прокрутки
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {

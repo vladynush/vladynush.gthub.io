@@ -5,6 +5,7 @@ import ProfilePage from 'src/pages/ProfilePage/ProfilePage';
 import { OperationFormModal } from 'src/features/add-operation/ui/OperationFormModal';
 import LoginPage from 'src/pages/LoginPage/LoginPage';
 import ProtectedRoute from './ProtectedRoute';
+import RegisterPage from 'src/pages/RegisterPage/RegisterPage';
 
 export const AppRoutes: React.FC = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ export const AppRoutes: React.FC = () => {
   return (
     <>
       <Routes location={state.backgroundLocation || location}>
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/"

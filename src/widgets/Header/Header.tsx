@@ -23,7 +23,7 @@ const Header: FC = () => {
       </nav>
 
       <div className={styles.controls}>
-        {profile && <span className={styles.username}>{profile.name}</span>}
+        {profile && <span className={styles.username}>{profile.email}</span>}
         <ThemeSwitcher />
         <LanguageSwitcher />
       </div>

@@ -71,3 +71,18 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.registerLink {
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.registerLink a {
+    text-decoration: none;
+}
+
+.registerLink a:hover {
+    text-decoration: underline;
+}

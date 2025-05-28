@@ -12,16 +12,16 @@ export default {
 const mockOperations: Operation[] = [
   {
     id: '1',
-    title: 'Кофе',
-    category: 'Еда',
+    name: 'Кофе',
+    categoryId: 'Еда',
     amount: -250,
     description: 'Утренний капучино',
     date: '2024-04-01',
   },
   {
     id: '2',
-    title: 'Зарплата',
-    category: 'Доход',
+    name: 'Зарплата',
+    categoryId: 'Доход',
     amount: 120000,
     description: 'Основной доход',
     date: '2024-04-05',

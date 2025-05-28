@@ -13,7 +13,7 @@ export type OperationCardProps = Operation & {
 
 const OperationCardComponent: FC<OperationCardProps> = ({
   id,
-  title,
+  name,
   category,
   description,
   amount,
@@ -45,8 +45,8 @@ const OperationCardComponent: FC<OperationCardProps> = ({
         </button>
       )}
       <div className={styles.info}>
-        <h4 className={styles.title}>{title}</h4>
-        <div className={styles.category}>{category}</div>
+        <h4 className={styles.title}>{name}</h4>
+        <div className={styles.category}>{category.name}</div>
         {isTruncated ? (
           <Tip title={description}>
             <div className={styles.description}>{description}</div>

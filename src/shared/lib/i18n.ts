@@ -10,10 +10,10 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     ru: { translation: ru },
   },
-  lng: 'en', // язык по умолчанию
+  lng: 'en',
   fallbackLng: 'en',
   interpolation: {
-    escapeValue: false, // не экранируем HTML
+    escapeValue: false,
   },
 });
 

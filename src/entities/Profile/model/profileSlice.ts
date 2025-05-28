@@ -2,27 +2,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type Profile = {
-  name: string;
   email: string;
+  commandId: string;
+  signUpDate: string;
   isAdmin: boolean;
 };
 
-type ProfileState = Profile | null;
-
-const initialState: ProfileState = null;
+const initialState: Profile | null = null;
 
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setProfile: (_state, action: PayloadAction<Profile>): ProfileState => {
-      return action.payload;
-    },
-    clearProfile: (): ProfileState => {
-      return null;
+    setProfile: (_, action: PayloadAction<Profile>) => action.payload,
+    clearProfile: () => null,
+    updateProfileField: <K extends keyof Profile>(
+      state: Profile | null,
+      action: PayloadAction<{ key: K; value: Profile[K] }>
+    ) => {
+      if (state) {
+        state[action.payload.key] = action.payload.value;
+      }
     },
   },
 });
 
-export const { setProfile, clearProfile } = profileSlice.actions;
+export const { setProfile, clearProfile, updateProfileField } = profileSlice.actions;
 export default profileSlice.reducer;

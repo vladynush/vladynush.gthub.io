@@ -1,9 +1,10 @@
+// src/features/add-operation/ui/AddOperationForm.tsx
 import React from 'react';
 import cn from 'clsx';
-import { AddOperationFormProps } from '../model/types';
 import styles from './AddOperationForm.module.css';
+import { AddOperationFormProps } from 'src/features/add-operation/model/types';
 
-const AddOperationFormComponent: React.FC<AddOperationFormProps> = ({ formManager }) => {
+export const AddOperationForm: React.FC<AddOperationFormProps> = ({ formManager, categories }) => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, submitCount } = formManager;
 
   const hasError = (field: keyof typeof values) => (touched[field] || submitCount > 0) && Boolean(errors[field]);
@@ -12,20 +13,20 @@ const AddOperationFormComponent: React.FC<AddOperationFormProps> = ({ formManage
     <form onSubmit={handleSubmit} className={styles.form} noValidate>
       {/* Название */}
       <div className={styles.field}>
-        <label htmlFor="title" className={styles.label}>
+        <label htmlFor="name" className={styles.label}>
           Название
         </label>
         <input
-          id="title"
-          name="title"
+          id="name"
+          name="name"
           type="text"
           placeholder="Что за операция?"
-          value={values.title}
+          value={values.name}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={cn(styles.input, { [styles.error]: hasError('title') })}
+          className={cn(styles.input, { [styles.error]: hasError('name') })}
         />
-        {hasError('title') && <div className={styles.error}>{errors.title}</div>}
+        {hasError('name') && <div className={styles.error}>{errors.name}</div>}
       </div>
 
       {/* Сумма */}
@@ -51,17 +52,38 @@ const AddOperationFormComponent: React.FC<AddOperationFormProps> = ({ formManage
         <label htmlFor="category" className={styles.label}>
           Категория
         </label>
-        <input
+        <select
           id="category"
           name="category"
-          type="text"
-          placeholder="Продукты, Транспорт..."
           value={values.category}
           onChange={handleChange}
           onBlur={handleBlur}
           className={cn(styles.input, { [styles.error]: hasError('category') })}
-        />
+        >
+          <option value="">-- Выберите категорию --</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
         {hasError('category') && <div className={styles.error}>{errors.category}</div>}
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="description" className={styles.label}>
+          Описание
+        </label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Комментарий к операции"
+          value={values.description}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={cn(styles.input, { [styles.error]: hasError('description') })}
+        />
+        {hasError('description') && <div className={styles.error}>{errors.description}</div>}
       </div>
 
       {/* Дата */}
@@ -82,10 +104,8 @@ const AddOperationFormComponent: React.FC<AddOperationFormProps> = ({ formManage
       </div>
 
       <button type="submit" className={styles.button} disabled={isSubmitting}>
-        {values.title ? 'Сохранить' : 'Добавить'}
+        {values.name ? 'Сохранить' : 'Добавить'}
       </button>
     </form>
   );
 };
-
-export const AddOperationForm = React.memo(AddOperationFormComponent);

@@ -6,4 +6,4 @@ export default {
   component: InfiniteOperationsList,
 };
 
-export const Default = () => <InfiniteOperationsList />;
+export const Default = () => <InfiniteOperationsList operations={[]} />;

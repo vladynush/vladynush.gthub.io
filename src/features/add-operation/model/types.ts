@@ -1,10 +1,14 @@
 import { FormProps } from 'src/shared/types/FormProps';
+import { Category } from 'src/shared/api/otus';
 
 export interface OperationFormValues {
-  title: string;
+  name: string;
   amount: number;
   category: string;
+  description?: string;
   date: string;
 }
 
-export type AddOperationFormProps = FormProps<OperationFormValues>;
+export interface AddOperationFormProps extends FormProps<OperationFormValues> {
+  categories: Category[];
+}

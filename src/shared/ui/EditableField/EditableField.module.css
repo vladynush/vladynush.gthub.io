@@ -1,0 +1,63 @@
+.field {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.readBlock,
+.editBlock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.editBlock {
+    animation: fadeIn 0.25s ease-out;
+    flex-wrap: wrap;
+}
+
+.readBlock {
+    flex-wrap: wrap;
+}
+
+.value {
+    font-size: 15px;
+    color: var(--text-color);
+    word-break: break-word;
+    flex: 1;
+}
+
+.button {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.inputWrapper {
+    flex: 1;
+    min-width: 200px;
+}

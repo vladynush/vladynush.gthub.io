@@ -71,3 +71,18 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.loginLink {
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.loginLink a {
+    text-decoration: none;
+}
+
+.loginLink a:hover {
+    text-decoration: underline;
+}

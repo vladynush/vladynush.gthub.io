@@ -9,7 +9,7 @@ export type OperationDetailsProps = Operation & {
 };
 
 const OperationDetailsComponent: FC<OperationDetailsProps> = ({
-  title,
+  name,
   category,
   description,
   amount,
@@ -19,8 +19,8 @@ const OperationDetailsComponent: FC<OperationDetailsProps> = ({
   const isAdmin = useSelector(selectIsAdmin);
   return (
     <div className={`${styles.details} ${styles[variant]}`}>
-      <h2 className={styles.title}>{title}</h2>
-      <div className={styles.category}>{category}</div>
+      <h2 className={styles.title}>{name}</h2>
+      <div className={styles.category}>{category.name}</div>
       <div className={styles.amount}>{amount > 0 ? `+${amount}` : amount} ₽</div>
       <div className={styles.description}>{description}</div>
       <div className={styles.date}>📅 {date}</div>
