@@ -2,7 +2,7 @@ name: Test, Lint, Build and Deploy on Github Pages
 
 on:
   push:
-    branches: ["master", "main"]
+    branches: [ "master", "main" ]
 
   # Позволяет запустить этот рабочий процесс вручную на вкладке Actions
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [ 18.x ]
 
     steps:
       - uses: actions/checkout@v3
@@ -44,7 +44,7 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-      #
+
       #      # Собираем Storybook
       #      - name: Build Storybook
       #        run: npm run build-storybook
@@ -56,7 +56,6 @@ jobs:
       #          branch: gh-pages
       #          folder: storybook-static
       #          commit-message: "Automatically publish Storybook"
-
 
       # Останавливаем выполнение строго при неудачных тестах
       - name: Fail on failed tests
