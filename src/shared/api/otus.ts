@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Operation } from 'src/shared/types/Operation';
 
 export const otusApi = axios.create({
-  baseURL: 'http://19429ba06ff2.vps.myjino.ru/api',
+  baseURL: 'https://19429ba06ff2.vps.myjino.ru/api',
 });
 
 otusApi.interceptors.request.use((config) => {
